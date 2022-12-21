@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Car List</h1>
+
+{% for car in cars %}
+<div class="card">
+  <a href="/cars/{{ car.id }}">
+    <div class="card-content">
+      <span class="card-title">{{ car.name }}</span>
+      <p>hp: {{ car.hp }}</p>
+      <p>Description: {{ car.description }}</p>
+      {% if car.year > 2000 %}
+      <p>year: {{ car.year }}</p>
+      {% else %}
+      <p>year: Classic</p>
+      {% endif %}
+      <p>MSRP: {{ car.msrp }}</p>
+      <img src={{ car.img }} />
+      
+    </div>
+  </a>
+</div>
+{% endfor %} {% endblock %}
